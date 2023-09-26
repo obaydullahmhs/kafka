@@ -1,0 +1,23 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Kafka
+metadata:
+  name: kafka-dev
+  namespace: demo
+spec:
+  replicas: 3
+  version: 3.4.1
+  enableSSL: true
+  tls:
+    issuerRef:
+      apiGroup: cert-manager.io
+      name: kafka-ca-issuer
+      kind: Issuer
+  storage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+    storageClassName: standard
+  storageType: Durable
+  terminationPolicy: WipeOut

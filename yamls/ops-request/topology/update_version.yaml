@@ -1,0 +1,11 @@
+apiVersion: ops.kubedb.com/v1alpha1
+kind: KafkaOpsRequest
+metadata:
+  name: update-version 
+  namespace: demo
+spec:
+  type: UpdateVersion
+  databaseRef:
+    name: kafka-prod
+  updateVersion:
+    targetVersion: 3.5.1

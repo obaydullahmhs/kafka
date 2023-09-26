@@ -1,0 +1,11 @@
+apiVersion: ops.kubedb.com/v1alpha1
+kind: KafkaOpsRequest
+metadata:
+  name: volume-expansion 
+  namespace: demo
+spec:
+  type: VolumeExpansion
+  databaseRef:
+    name: kafka-dev
+  volumeExpansion:
+    node: 11Gi

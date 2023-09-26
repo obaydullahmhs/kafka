@@ -1,0 +1,25 @@
+apiVersion: ops.kubedb.com/v1alpha1
+kind: KafkaOpsRequest
+metadata:
+  name: vertical-scaling 
+  namespace: demo
+spec:
+  type: VerticalScaling
+  databaseRef:
+    name: kafka-prod
+  verticalScaling:
+    topology:
+      broker:
+        limits:
+          cpu: 1000m
+          memory: 1250Mi
+        requests:
+          cpu: 502m
+          memory: 1100Mi
+      controller:
+        limits:
+          cpu: 999m
+          memory: 1249Mi
+        requests:
+          cpu: 503m
+          memory: 1100Mi

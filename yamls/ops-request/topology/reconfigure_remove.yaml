@@ -1,0 +1,11 @@
+apiVersion: ops.kubedb.com/v1alpha1
+kind: KafkaOpsRequest
+metadata:
+  name: remove-tls 
+  namespace: demo
+spec:
+  type: Reconfigure
+  databaseRef:
+    name: kafka-prod
+  configuration:
+    removeCustomConfig: true
